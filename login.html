@@ -3,179 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Academy | Sign Up</title>
+<title>Crypto Academy Login</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
 body{
+    font-family: Arial, sans-serif;
     background:#0b0f1a;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
+    margin:0;
 }
 
 .container{
-    width:400px;
+    width:350px;
     background:#111827;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(245,197,66,.4);
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(255,193,7,.4);
 }
 
-h1{
+h2{
     color:#f5c542;
-    text-align:center;
-    margin-bottom:10px;
-}
-
-p{
-    color:#cfcfcf;
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.input-box{
     margin-bottom:20px;
 }
 
-.input-box label{
-    color:#ffffff;
-    display:block;
-    margin-bottom:8px;
-}
-
-.input-box input{
+input{
     width:100%;
-    padding:14px;
+    padding:12px;
+    margin:10px 0;
     border:none;
-    border-radius:8px;
+    border-radius:5px;
     background:#1f2937;
-    color:#ffffff;
+    color:white;
     font-size:16px;
-}
-
-.input-box input:focus{
-    outline:none;
-    border:2px solid #f5c542;
 }
 
 button{
     width:100%;
-    padding:15px;
+    padding:12px;
     background:#f5c542;
-    color:#111827;
+    color:black;
     border:none;
-    border-radius:8px;
-    font-size:18px;
-    font-weight:bold;
+    border-radius:5px;
+    font-size:16px;
     cursor:pointer;
-    transition:.3s;
 }
 
 button:hover{
     background:#ffb700;
 }
 
-#msg{
-    text-align:center;
-    margin-top:20px;
-    color:#00ff99;
-}
-
-.footer{
-    text-align:center;
-    color:#999;
-    margin-top:20px;
-    font-size:14px;
-}
-
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Crypto Academy</h1>
+<h2>Crypto Academy</h2>
 
-<p>Join our community and receive crypto news & updates.</p>
+<form>
 
-<div class="input-box">
-<label>Full Name</label>
-<input type="text" id="name" placeholder="Enter your full name" required>
-</div>
+<input type="text" placeholder="Enter Your Name" required>
 
-<div class="input-box">
-<label>Email Address</label>
-<input type="email" id="email" placeholder="Enter your email address" required>
-</div>
+<input type="email" placeholder="Enter Your Email" required>
 
-<button onclick="save()">Sign Up</button>
+<button type="submit">Login</button>
 
-<div id="msg"></div>
-
-<div class="footer">
-© 2026 Crypto Academy
-</div>
+</form>
 
 </div>
-
-<script>
-
-function save(){
-
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-
-    if(name=="" || email==""){
-        document.getElementById("msg").innerHTML="Please fill all fields.";
-        document.getElementById("msg").style.color="red";
-        return;
-    }
-
-    fetch("YOUR_GOOGLE_APPS_SCRIPT_URL",{
-
-        method:"POST",
-
-        body:new URLSearchParams({
-
-            name:name,
-            email:email
-
-        })
-
-    })
-
-    .then(response=>response.text())
-
-    .then(data=>{
-
-        document.getElementById("msg").innerHTML="✅ Thank you for subscribing!";
-        document.getElementById("msg").style.color="#00ff99";
-
-        document.getElementById("name").value="";
-        document.getElementById("email").value="";
-
-    })
-
-    .catch(error=>{
-
-        document.getElementById("msg").innerHTML="❌ Error sending data.";
-        document.getElementById("msg").style.color="red";
-
-    });
-
-}
-
-</script>
 
 </body>
 </html>
